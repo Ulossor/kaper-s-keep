@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3yif5da08tc3"]
+
+[ext_resource type="Texture2D" uid="uid://dtd052c7hbgsc" path="res://art/npcs/cowboy01.png" id="1_kh24r"]
+[ext_resource type="Script" uid="uid://dpbsq4nd5caa1" path="res://npc.gd" id="1_ul7y6"]
+[ext_resource type="Texture2D" uid="uid://bqxhek81nciys" path="res://art/npcs/cowboy02.png" id="2_ul7y6"]
+[ext_resource type="Texture2D" uid="uid://kcpjyb1kyyep" path="res://art/npcs/cowboy03.png" id="3_bc6q4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcvl2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kh24r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ul7y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bc6q4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ul7y6"]
+radius = 7.0
+height = 24.0
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_ul7y6")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -10)
+sprite_frames = SubResource("SpriteFrames_mcvl2")
+
+[node name="Coll" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_ul7y6")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=4 uid="uid://bswoyn0objs6i"]
+
+[ext_resource type="Texture2D" uid="uid://bdtbq5te2urio" path="res://art/tiles/tilesheet01.png" id="1_cwqvt"]
+[ext_resource type="PackedScene" uid="uid://b2j68ho7ka1h1" path="res://player.tscn" id="3_cwqvt"]
+[ext_resource type="PackedScene" uid="uid://d3yif5da08tc3" path="res://npc.tscn" id="4_5mrsh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mrsh"]
+texture = ExtResource("1_cwqvt")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -8)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -8)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(0, -8)
+0:2/0/custom_data_0 = true
+
+[sub_resource type="TileSet" id="TileSet_cwqvt"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(32, 16)
+custom_data_layer_0/name = "is_hazard"
+custom_data_layer_0/type = 1
+sources/2 = SubResource("TileSetAtlasSource_5mrsh")
+
+[node name="Level" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Layer0" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD+/wEAAgABAAAAAAD+/wAAAgAAAAIAAAD+////AgABAAAAAAD+/wIAAgABAAAAAAD9/wEAAgABAAAAAAD9/wAAAgAAAAIAAAD9////AgABAAAAAAD9//7/AgABAAAAAAD//wIAAgAAAAIAAAD//wAAAgAAAAIAAAD+//7/AgABAAAAAAAAAAIAAgAAAAIAAAAAAAAAAgAAAAIAAAD/////AgABAAAAAAABAAIAAgABAAAAAAABAAEAAgABAAAAAAABAAAAAgABAAAAAAABAP//AgABAAAAAAAAAP//AgABAAAAAAAAAP7/AgABAAAAAAD///7/AgABAAAAAAD9/wIAAgABAAAAAAD+/wMAAgABAAAAAAD//wMAAgAAAAIAAAAAAAQAAgABAAAAAAABAAQAAgABAAAAAAACAAQAAgABAAAAAAACAAMAAgABAAAAAAACAAIAAgABAAAAAAACAAAAAgABAAAAAAACAAEAAgABAAAAAAADAAEAAgABAAAAAAADAAQAAgABAAAAAAADAAMAAgABAAAAAAAEAAMAAgABAAAAAAAEAAIAAgABAAAAAAAEAAEAAgABAAAAAAAEAAAAAgABAAAAAAADAAAAAgABAAAAAAADAAIAAgABAAAAAAD8/wIAAgABAAAAAAD8/wEAAgABAAAAAAD8/wAAAgABAAAAAAD8////AgABAAAAAAD9/wMAAgABAAAAAAD+/wQAAgABAAAAAAD//wQAAgABAAAAAAAAAAEAAgAAAAIAAAD//wEAAgABAAAAAAAAAAMAAgAAAAIAAAABAAMAAgABAAAAAAA=")
+tile_set = SubResource("TileSet_cwqvt")
+
+[node name="Layer1" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_cwqvt")
+y_sort_origin = 24
+
+[node name="Player" parent="." instance=ExtResource("3_cwqvt")]
+position = Vector2(32, 32)
+
+[node name="NPC" parent="." instance=ExtResource("4_5mrsh")]
+z_index = 2
+position = Vector2(0, 32)
