@@ -1,18 +1,11 @@
 extends Node2D
 
-@onready var npc = $Level/NPC
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	npc.gotcha.connect(_on_gotcha)
-	await get_tree().create_timer(2.0).timeout
-	$Level/NPC.move_to(Vector2i(-2,2))
+	hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-func _on_gotcha():
-	$Level.queue_free()
-	$HUD.show()

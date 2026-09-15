@@ -12,30 +12,38 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	position_input()
+	if Input.is_action_just_pressed("ui_accept"):
+		map1.set_cell(map1.local_to_map(position), 2, Vector2i(1,2))
+	
+
+func position_input():
 	var glob_pos = get_global_position()
 	var loc_pos = to_local(glob_pos)
 	var map_pos = map0.local_to_map(glob_pos)
 	if Input.is_action_just_pressed("ui_left"):
 		map_pos = map_pos + Vector2i(0,1)
-		map_pos = check_height_level(map_pos)
+		#map_pos = check_height_level(map_pos)
 		loc_pos = map0.map_to_local(map_pos)
 		set_position(loc_pos)
 		return
 	if Input.is_action_just_pressed("ui_right"):
 		map_pos = map_pos + Vector2i(0,-1)
-		map_pos = check_height_level(map_pos)
+		#map_pos = check_height_level(map_pos)
 		loc_pos = map0.map_to_local(map_pos)
 		set_position(loc_pos)
 		return
 	if Input.is_action_just_pressed("ui_up"):
 		map_pos = map_pos + Vector2i(-1, 0)
-		map_pos = check_height_level(map_pos)
+		#map_pos = check_height_level(map_pos)
+		
 		loc_pos = map0.map_to_local(map_pos)
 		set_position(loc_pos)
 		return
 	if Input.is_action_just_pressed("ui_down"):
 		map_pos = map_pos + Vector2i(1,0)
-		map_pos = check_height_level(map_pos)
+		#map_pos = check_height_level(map_pos)
+		
 		loc_pos = map0.map_to_local(map_pos)
 		set_position(loc_pos)
 		return
