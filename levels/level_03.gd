@@ -1,11 +1,10 @@
 extends Node2D
 
 @onready var npc =$NPC
-@onready var pl = $Player
 @onready var main = $"../../Main"
 
-var start_pos=Vector2i(4,1)
-var end_pos=Vector2i(-5,1)
+var start_pos=Vector2i(-1,2)
+var end_pos=Vector2i(-5,2)
 
 func _ready() -> void:
 	
@@ -13,7 +12,10 @@ func _ready() -> void:
 	
 	npc.move_to(start_pos)
 	
+	
+	
 	npc.move_to(end_pos)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

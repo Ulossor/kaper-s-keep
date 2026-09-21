@@ -11,13 +11,15 @@ texture = ExtResource("2_k1cv0")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 8)
-0:0/0/custom_data_1 = true
+0:0/0/y_sort_origin = -24
+0:0/0/custom_data_0 = true
 0:0/0/custom_data_2 = "pit"
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
 0:1/0 = 0
 0:1/0/texture_origin = Vector2i(0, 8)
+0:1/0/y_sort_origin = -24
 0:1/0/custom_data_1 = true
 0:1/0/custom_data_2 = "spikes"
 1:1/0 = 0
@@ -25,6 +27,7 @@ texture_region_size = Vector2i(32, 32)
 3:1/0 = 0
 0:2/0 = 0
 0:2/0/texture_origin = Vector2i(0, 8)
+0:2/0/y_sort_origin = -24
 0:2/0/custom_data_1 = true
 0:2/0/custom_data_2 = "jumper"
 1:2/0 = 0
@@ -37,7 +40,8 @@ texture_region_size = Vector2i(32, 32)
 0:3/animation_frame_3/duration = 1.0
 0:3/0 = 0
 0:3/0/texture_origin = Vector2i(0, 8)
-0:3/0/custom_data_1 = true
+0:3/0/y_sort_origin = -24
+0:3/0/custom_data_0 = true
 0:3/0/custom_data_2 = "snake"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mrsh"]
@@ -69,6 +73,7 @@ texture_region_size = Vector2i(32, 32)
 1:1/0/texture_origin = Vector2i(0, -8)
 2:1/0 = 0
 2:1/0/texture_origin = Vector2i(0, 8)
+2:1/0/y_sort_origin = -16
 3:1/0 = 0
 3:1/0/texture_origin = Vector2i(0, 8)
 0:3/0 = 0
@@ -91,6 +96,8 @@ custom_data_layer_1/name = "hazard_hidden"
 custom_data_layer_1/type = 1
 custom_data_layer_2/name = "type"
 custom_data_layer_2/type = 4
+custom_data_layer_3/name = "direction"
+custom_data_layer_3/type = 4
 sources/2 = SubResource("TileSetAtlasSource_5mrsh")
 sources/0 = SubResource("TileSetAtlasSource_v2pnk")
 
@@ -100,12 +107,11 @@ script = ExtResource("1_3yy2d")
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAAAAAgABAAAAAAABAAAAAgAAAAEAAAACAAAAAgAAAAAAAAADAAAAAgABAAAAAAAEAAAAAgAAAAAAAAAEAAEAAgAAAAAAAAADAAEAAgAAAAAAAAACAAEAAgAAAAAAAAABAAEAAgAAAAAAAAAAAAEAAgABAAAAAAAAAAIAAgAAAAAAAAABAAIAAgABAAAAAAACAAIAAgAAAAAAAAADAAIAAgABAAAAAAAEAAIAAgADAAAAAAAFAAEAAgAAAAAAAAAGAAEAAgAAAAAAAAAHAAEAAgAAAAAAAAD//wEAAgABAAAAAAD+/wEAAgABAAAAAAD9/wEAAgABAAAAAAD8/wEAAgABAAAAAAD8/wIAAgABAAAAAAD9/wIAAgABAAAAAAD8/wAAAgABAAAAAAD9/wAAAgABAAAAAAD7/wEAAgAAAAAAAAD6/wEAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAgABAAAAAAABAAAAAgAAAAEAAAACAAAAAgAAAAAAAAADAAAAAgABAAAAAAAEAAAAAgAAAAAAAAAEAAEAAgAAAAAAAAADAAEAAgAAAAAAAAACAAEAAgAAAAAAAAABAAEAAgAAAAAAAAAAAAEAAgABAAAAAAAAAAIAAgAAAAAAAAABAAIAAgABAAAAAAACAAIAAgAAAAAAAAADAAIAAgABAAAAAAAEAAIAAgADAAAAAAAFAAEAAgAAAAAAAAAGAAEAAgAAAAAAAAAHAAEAAgAAAAAAAAD9/wEAAgABAAAAAAD8/wEAAgABAAAAAAD8/wIAAgABAAAAAAD9/wIAAgABAAAAAAD8/wAAAgABAAAAAAD9/wAAAgABAAAAAAD7/wEAAgAAAAAAAAD6/wEAAgAAAAAAAAD+/wEAAgABAAAAAAD//wEAAgABAAAAAAD+/wQAAgAAAAAAAAD//wYAAgAAAAAAAAAAAAQAAgAAAAAAAAD9//7/AgAAAAAAAAD///3/AgAAAAAAAAABAPz/AgAAAAAAAAACAP7/AgAAAAAAAAADAAUAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_cwqvt")
 
 [node name="Layer1" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD7/wIAAgACAAEAAAD7/wAAAgACAAEAAAD8/wAAAgACAAEAAAD8/wIAAgACAAEAAAA=")
 tile_set = SubResource("TileSet_cwqvt")
 y_sort_origin = 24
 
@@ -113,5 +119,4 @@ y_sort_origin = 24
 position = Vector2(32, 16)
 
 [node name="NPC" parent="." instance=ExtResource("3_k1cv0")]
-z_index = 0
-position = Vector2(96, 64)
+position = Vector2(64, 48)

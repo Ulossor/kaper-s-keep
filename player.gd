@@ -9,13 +9,14 @@ extends Node2D
 	"spikes" :
 		{"atlas_coords": Vector2i(0, 1), "amount": 3},
 	"jumper":
-		{"atlas_coords": Vector2i(0,2), "amount": 3},
+		{"atlas_coords": Vector2i(0,2), "amount": 3, "direction": "down"},
 	"snake":
 		{"atlas_coords": Vector2i(0,3), "amount": 3}}
 
 var cur_trap: Dictionary = available_traps["pit"]
 var trap_coords: Vector2i = cur_trap["atlas_coords"]
 var index = 0
+var alt_id = 1
 
 func _ready() -> void:
 	set_process(false)
@@ -31,11 +32,33 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("A"):
 		if cur_trap["amount"] > 0:
-			map1.set_cell(map1.local_to_map(position), 0, trap_coords)
+			
+				
+			
+			if cur_trap.has("direction"):
+				
+				var atlas_src = map1.tile_set.get_source(0)
+				var base_data = atlas_src.get_tile_data(Vector2i(0,2), 0)
+				atlas_src.create_alternative_tile(Vector2i(0,2), alt_id)
+				
+				var jumper_data = atlas_src.get_tile_data(Vector2i(0,2), alt_id)
+				jumper_data.texture_origin = base_data.texture_origin
+				jumper_data.set_custom_data("type", "jumper")
+				jumper_data.set_custom_data("direction", cur_trap["direction"])
+				jumper_data.y_sort_origin = -24
+				map1.set_cell(map1.local_to_map(position), 0, Vector2i(0,2), alt_id)
+				alt_id += 1
+			else:
+				map1.set_cell(map1.local_to_map(position), 0, trap_coords)
 			cur_trap["amount"] += -1
 	if Input.is_action_just_pressed("B"):
 		change_trap()
-		
+	if Input.is_action_just_pressed("Select"):
+		if cur_trap.has("direction"):
+			var directs = ["up", "right", "down", "left"]
+			for dir in directs:
+				if cur_trap["direction"] == dir:
+					cur_trap["direction"] = directs[(directs.size()+1) % directs.size()]
 
 
 func position_input():

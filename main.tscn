@@ -1,18 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://2qd6kel45oxx"]
+[gd_scene load_steps=5 format=3 uid="uid://2qd6kel45oxx"]
 
 [ext_resource type="Script" uid="uid://urb5bm4myce3" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://cvcy4arl4s5rm" path="res://art/background05.png" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ciiwa0u1fw8ho" path="res://levels/level00.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bi3swkmrgd12y" path="res://hud.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_h2yge")
 
-[node name="Level" parent="." instance=ExtResource("2_h2yge")]
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -72.0
+offset_right = 80.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_1bvp3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource("3_h2yge")]
 z_index = 32
+
+[node name="Level" parent="." instance=ExtResource("2_h2yge")]
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="next" from="HUD" to="." method="_on_hud_next"]

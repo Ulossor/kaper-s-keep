@@ -1,13 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://baa5odavfvbdq"]
+[gd_scene load_steps=9 format=4 uid="uid://d324i2i7o8vgu"]
 
-[ext_resource type="Script" uid="uid://iuhpm2c2udx5" path="res://levels/level_01.gd" id="1_53p8g"]
-[ext_resource type="Texture2D" uid="uid://dup7ljvdnwawq" path="res://art/tiles/tilesheettraps.png" id="2_vxcwb"]
-[ext_resource type="Texture2D" uid="uid://bdtbq5te2urio" path="res://art/tiles/tilesheet01.png" id="3_kxijb"]
-[ext_resource type="PackedScene" uid="uid://b2j68ho7ka1h1" path="res://player.tscn" id="4_ed0h8"]
-[ext_resource type="PackedScene" uid="uid://d3yif5da08tc3" path="res://npc.tscn" id="5_x5epe"]
+[ext_resource type="Script" uid="uid://k5nnh5i3gir6" path="res://levels/level_02.gd" id="1_b4xcw"]
+[ext_resource type="Texture2D" uid="uid://dup7ljvdnwawq" path="res://art/tiles/tilesheettraps.png" id="2_oig5u"]
+[ext_resource type="Texture2D" uid="uid://bdtbq5te2urio" path="res://art/tiles/tilesheet01.png" id="3_33ega"]
+[ext_resource type="PackedScene" uid="uid://b2j68ho7ka1h1" path="res://player.tscn" id="4_orkke"]
+[ext_resource type="PackedScene" uid="uid://d3yif5da08tc3" path="res://npc.tscn" id="5_n311a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2pnk"]
-texture = ExtResource("2_vxcwb")
+texture = ExtResource("2_oig5u")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 8)
@@ -45,7 +45,7 @@ texture_region_size = Vector2i(32, 32)
 0:3/0/custom_data_2 = "snake"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mrsh"]
-texture = ExtResource("3_kxijb")
+texture = ExtResource("3_33ega")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -8)
@@ -76,6 +76,7 @@ texture_region_size = Vector2i(32, 32)
 2:1/0/y_sort_origin = -16
 3:1/0 = 0
 3:1/0/texture_origin = Vector2i(0, 8)
+3:1/0/y_sort_origin = -16
 0:3/0 = 0
 0:3/0/texture_origin = Vector2i(0, -8)
 0:3/0/custom_data_0 = true
@@ -103,21 +104,21 @@ sources/0 = SubResource("TileSetAtlasSource_v2pnk")
 
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_53p8g")
+script = ExtResource("1_b4xcw")
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAEAAEAAgABAAAAAAAAAAEAAgABAAAAAAAFAAEAAgABAAAAAAAGAAEAAgABAAAAAAAHAAEAAgABAAAAAAD9/wEAAgABAAAAAAD8/wEAAgABAAAAAAD8/wIAAgABAAAAAAD9/wIAAgABAAAAAAD8/wAAAgABAAAAAAD9/wAAAgABAAAAAAD7/wEAAgAAAAAAAAD6/wEAAgAAAAAAAAD+/wEAAgABAAAAAAD//wEAAgABAAAAAAADAAEAAgABAAAAAAABAAEAAgABAAAAAAACAAEAAgABAAAAAAABAAAAAgABAAAAAAABAP//AgABAAAAAAD+/wUAAgAAAAAAAAACAAMAAgABAAAAAAD+////AgAAAAEAAAADAAYAAgAAAAAAAAAEAP//AgABAAAAAAACAP3/AgACAAAAAAAAAP3/AgADAAAAAAAAAAQAAgABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAHAAEAAgABAAAAAAABAAAAAgABAAAAAAAGAAEAAgABAAAAAAAFAAEAAgABAAAAAAAEAAEAAgABAAAAAAADAAEAAgABAAAAAAACAAEAAgABAAAAAAACAAAAAgABAAAAAAACAAIAAgADAAAAAAABAAIAAgACAAAAAAAAAAIAAgAAAAAAAAAAAAAAAgABAAAAAAD//wAAAgABAAAAAAAAAAEAAgABAAEAAAD//wIAAgABAAAAAAD+/wIAAgAAAAAAAAD+/wAAAgABAAAAAAD9/wAAAgABAAAAAAD9/wEAAgABAAAAAAD9/wIAAgABAAAAAAD8/wEAAgABAAAAAAD7/wEAAgABAAAAAAD6/wEAAgABAAAAAAA=")
 tile_set = SubResource("TileSet_cwqvt")
 
 [node name="Layer1" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAABAP//AAAAAAEAAAD8/wAAAgADAAEAAAD7/wAAAgADAAEAAAD7/wIAAgADAAEAAAA=")
+tile_map_data = PackedByteArray("AAABAAEAAgADAAEAAAD//wEAAgADAAEAAAD8/wAAAgADAAEAAAD7/wAAAgADAAEAAAD6/wAAAgADAAEAAAA=")
 tile_set = SubResource("TileSet_cwqvt")
 y_sort_origin = 24
 
-[node name="Player" parent="." instance=ExtResource("4_ed0h8")]
+[node name="Player" parent="." instance=ExtResource("4_orkke")]
 position = Vector2(32, 16)
 
-[node name="NPC" parent="." instance=ExtResource("5_x5epe")]
+[node name="NPC" parent="." instance=ExtResource("5_n311a")]
 position = Vector2(64, 48)
