@@ -2,8 +2,10 @@ extends Node2D
 
 @onready var npc = $Level/NPC
 
-var lvls = ["levels/level00.tscn", "levels/level01.tscn", "levels/level02.tscn", "levels/level03.tscn"]
-var cur_level = lvls[1]
+var lvls = ["levels/level00.tscn", "levels/level01.tscn",
+			"levels/level02.tscn", "levels/level03.tscn",
+			"levels/level04.tscn", "levels/level05.tscn"]
+var cur_level = lvls[0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,6 +34,8 @@ func _on_hud_next() -> void:
 		if cur_level == lvls[i] and cur_level != lvls[-1]:
 			cur_level = lvls[i + 1]
 			break
+		if cur_level == lvls[-1]:
+			$HUD/TheEnd.show()
 	var next = load(cur_level)
 	await get_tree().physics_frame
 	var next_inst = next.instantiate()

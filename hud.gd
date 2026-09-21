@@ -7,6 +7,7 @@ signal retry
 func _ready() -> void:
 	$GameOver.hide()
 	$WellDone.hide()
+	$TheEnd.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
