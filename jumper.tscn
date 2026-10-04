@@ -1,51 +1,70 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqtrqay31wbxa"]
+[gd_scene load_steps=12 format=3 uid="uid://bqtrqay31wbxa"]
 
-[ext_resource type="Texture2D" uid="uid://di74da8px2ldn" path="res://art/tiles/jumper/jumper0.png" id="1_jgrh8"]
 [ext_resource type="Script" uid="uid://b3lfcfv7xjeqb" path="res://jumper.gd" id="1_ysxgc"]
 [ext_resource type="Texture2D" uid="uid://8eex27m0kuo0" path="res://art/tiles/jumper/jumperdown0.png" id="3_jetm4"]
+[ext_resource type="Texture2D" uid="uid://df2fkttsqlqfm" path="res://art/tiles/jumper/jumperdown1.png" id="3_t4kmm"]
 [ext_resource type="Texture2D" uid="uid://ct7tr1gj6a1rl" path="res://art/tiles/jumper/jumperleft0.png" id="4_t4kmm"]
+[ext_resource type="Texture2D" uid="uid://d1g1r2e6saqqg" path="res://art/tiles/jumper/jumperleft1.png" id="5_cxw23"]
 [ext_resource type="Texture2D" uid="uid://b4vdwht8awru7" path="res://art/tiles/jumper/jumperright0.png" id="5_xt1hf"]
 [ext_resource type="Texture2D" uid="uid://cxhbdecjvlv6n" path="res://art/tiles/jumper/jumperup0.png" id="6_cxw23"]
+[ext_resource type="Texture2D" uid="uid://b361x28jkbiwn" path="res://art/tiles/jumper/jumperright1.png" id="7_entnp"]
+[ext_resource type="Texture2D" uid="uid://dkpy0xtgold54" path="res://art/tiles/jumper/jumperup1.png" id="9_n5alc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ysxgc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_jgrh8")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
+"texture": ExtResource("3_jetm4")
 }, {
-"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_t4kmm")
+}, {
 "duration": 1.0,
 "texture": ExtResource("3_jetm4")
 }],
-"loop": true,
+"loop": false,
 "name": &"down",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_t4kmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cxw23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t4kmm")
 }],
-"loop": true,
+"loop": false,
 "name": &"left",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_xt1hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_entnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xt1hf")
 }],
-"loop": true,
+"loop": false,
 "name": &"right",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_cxw23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_n5alc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cxw23")
 }],
-"loop": true,
+"loop": false,
 "name": &"up",
 "speed": 5.0
 }]
@@ -59,6 +78,7 @@ script = ExtResource("1_ysxgc")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_ysxgc")
+animation = &"up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)

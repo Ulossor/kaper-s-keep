@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c04l4x0qgvo1b"]
+
+[ext_resource type="Script" uid="uid://budnoddejpxfg" path="res://spikes.gd" id="1_8fhau"]
+[ext_resource type="Texture2D" uid="uid://cvaj2slrc1tng" path="res://art/tiles/spikes/spikes0.png" id="1_nrdsm"]
+[ext_resource type="Texture2D" uid="uid://cyc83lmmi3spd" path="res://art/tiles/spikes/spikes1.png" id="2_8fhau"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ds4fp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nrdsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8fhau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_nrdsm")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_k4mtd"]
+points = PackedVector2Array(0, -4, -12, 0, 0, 4, 12, 0)
+
+[node name="Spikes" type="Area2D"]
+script = ExtResource("1_8fhau")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_ds4fp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_k4mtd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

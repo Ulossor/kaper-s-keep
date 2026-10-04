@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvrtfrmlpc16v"]
+
+[ext_resource type="Script" uid="uid://3erpjbrd8jfu" path="res://title.gd" id="1_oyqm6"]
+[ext_resource type="Texture2D" uid="uid://cd21pk4ryq66e" path="res://art/titleback02.png" id="2_kpexm"]
+[ext_resource type="Texture2D" uid="uid://c31b2acnw735h" path="res://art/titleback03.png" id="3_3xoar"]
+[ext_resource type="Texture2D" uid="uid://sjiysbrgfpqg" path="res://art/cloud2.png" id="5_mom7w"]
+[ext_resource type="Texture2D" uid="uid://b2i3ajuoi7e06" path="res://art/cloud1.png" id="6_7lgly"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_y7k74"]
+frames = 2
+frame_0/texture = ExtResource("2_kpexm")
+frame_1/texture = ExtResource("3_3xoar")
+frame_1/duration = 1.0
+
+[node name="Title" type="Node2D"]
+script = ExtResource("1_oyqm6")
+
+[node name="TitleBack01" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 160.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = SubResource("AnimatedTexture_y7k74")
+metadata/_edit_use_anchors_ = true
+
+[node name="Cloud" type="TextureRect" parent="."]
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 24.0
+texture = ExtResource("6_7lgly")
+
+[node name="Cloud1" type="TextureRect" parent="."]
+offset_left = 88.0
+offset_top = 16.0
+offset_right = 152.0
+offset_bottom = 56.0
+texture = ExtResource("5_mom7w")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 136.0
+offset_bottom = 56.0
+theme_override_colors/default_color = Color(0.137255, 0.223529, 0.2, 1)
+theme_override_font_sizes/mono_font_size = 16
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+text = "Kaper's keep"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 128.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0.901961, 0.72549, 0.352941, 1)
+theme_override_font_sizes/font_size = 8
+text = "Press start"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Timer2" type="Timer" parent="."]
+autostart = true
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]

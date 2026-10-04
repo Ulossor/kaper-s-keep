@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2j68ho7ka1h1"]
+[gd_scene load_steps=11 format=3 uid="uid://b2j68ho7ka1h1"]
 
 [ext_resource type="Script" uid="uid://dg0qtavvkywok" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://c05enmnohqusq" path="res://art/coursor02.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://co7g0dafijsf4" path="res://art/tiles/coursorjumdown.png" id="3_b26j0"]
+[ext_resource type="Texture2D" uid="uid://b3oorc6kxc3hg" path="res://art/tiles/coursorpit.png" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://v54ew5cbbkvg" path="res://art/tiles/coursorsnake0.png" id="4_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://5552dcxcqfxe" path="res://art/tiles/coursorjumleft.png" id="4_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://b3qar34xkoia2" path="res://art/tiles/coursorspikes.png" id="5_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://dl1noi3dw8p2f" path="res://art/tiles/coursorjumright.png" id="6_nvl01"]
+[ext_resource type="Texture2D" uid="uid://cay0c24ofjj6x" path="res://art/tiles/coursorjumup.png" id="9_ivps1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_onrkg"]
 animations = [{
@@ -11,7 +18,84 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b26j0")
+}],
+"loop": true,
+"name": &"down",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_n7ghd")
+}],
+"loop": true,
+"name": &"left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sweqy")
+}],
+"loop": true,
+"name": &"pit",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nvl01")
+}],
+"loop": true,
+"name": &"right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2hs0m")
+}],
+"loop": true,
+"name": &"snake",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1jxqw")
+}],
+"loop": true,
+"name": &"spikes",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ivps1")
+}],
+"loop": true,
+"name": &"up",
+"speed": 2.0
 }]
 
 [node name="Player" type="Node2D"]

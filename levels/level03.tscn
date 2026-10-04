@@ -1,151 +1,35 @@
-[gd_scene load_steps=9 format=4 uid="uid://cv30u6k71bvsk"]
+[gd_scene load_steps=5 format=4 uid="uid://cv30u6k71bvsk"]
 
 [ext_resource type="Script" uid="uid://bp88rqmglweff" path="res://levels/level_03.gd" id="1_6ig5j"]
-[ext_resource type="Texture2D" uid="uid://dup7ljvdnwawq" path="res://art/tiles/tilesheettraps.png" id="2_816ur"]
-[ext_resource type="Texture2D" uid="uid://bdtbq5te2urio" path="res://art/tiles/tilesheet01.png" id="3_op2ih"]
+[ext_resource type="TileSet" uid="uid://b7msp4krn2rwg" path="res://levels/level.tres" id="2_6tpld"]
 [ext_resource type="PackedScene" uid="uid://b2j68ho7ka1h1" path="res://player.tscn" id="4_ri3il"]
 [ext_resource type="PackedScene" uid="uid://d3yif5da08tc3" path="res://npc.tscn" id="5_bsp3h"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2pnk"]
-texture = ExtResource("2_816ur")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 8)
-0:0/0/y_sort_origin = -24
-0:0/0/custom_data_0 = true
-0:0/0/custom_data_2 = "pit"
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-0:1/0/texture_origin = Vector2i(0, 8)
-0:1/0/y_sort_origin = -24
-0:1/0/custom_data_1 = true
-0:1/0/custom_data_2 = "spikes"
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/next_alternative_id = 5
-0:2/0 = 0
-0:2/0/texture_origin = Vector2i(0, 8)
-0:2/0/y_sort_origin = -24
-0:2/0/custom_data_1 = true
-0:2/0/custom_data_2 = "jumper"
-0:2/1 = 1
-0:2/1/texture_origin = Vector2i(0, 8)
-0:2/1/y_sort_origin = -24
-0:2/1/custom_data_1 = true
-0:2/1/custom_data_2 = "jumper"
-0:2/1/custom_data_3 = "up"
-0:2/2 = 2
-0:2/2/texture_origin = Vector2i(0, 8)
-0:2/2/y_sort_origin = -24
-0:2/2/custom_data_1 = true
-0:2/2/custom_data_2 = "jumper"
-0:2/2/custom_data_3 = "right"
-0:2/3 = 3
-0:2/3/texture_origin = Vector2i(0, 8)
-0:2/3/y_sort_origin = -24
-0:2/3/custom_data_1 = true
-0:2/3/custom_data_2 = "jumper"
-0:2/3/custom_data_3 = "down"
-0:2/4 = 4
-0:2/4/texture_origin = Vector2i(0, 8)
-0:2/4/y_sort_origin = -24
-0:2/4/custom_data_1 = true
-0:2/4/custom_data_2 = "jumper"
-0:2/4/custom_data_3 = "left"
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-0:3/animation_columns = 4
-0:3/animation_frame_0/duration = 1.0
-0:3/animation_frame_1/duration = 1.0
-0:3/animation_frame_2/duration = 1.0
-0:3/animation_frame_3/duration = 1.0
-0:3/0 = 0
-0:3/0/texture_origin = Vector2i(0, 8)
-0:3/0/y_sort_origin = -24
-0:3/0/custom_data_0 = true
-0:3/0/custom_data_2 = "snake"
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mrsh"]
-texture = ExtResource("3_op2ih")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, -8)
-0:0/0/y_sort_origin = -4
-1:0/0 = 0
-1:0/0/texture_origin = Vector2i(0, -8)
-1:0/0/y_sort_origin = -4
-0:2/0 = 0
-0:2/0/texture_origin = Vector2i(0, 8)
-0:2/0/y_sort_origin = -16
-0:2/0/custom_data_0 = true
-0:1/0 = 0
-0:1/0/texture_origin = Vector2i(0, -8)
-0:1/0/y_sort_origin = -4
-1:2/0 = 0
-1:2/0/texture_origin = Vector2i(0, 8)
-1:2/0/y_sort_origin = -16
-2:2/0 = 0
-2:2/0/texture_origin = Vector2i(0, 8)
-2:0/0 = 0
-2:0/0/texture_origin = Vector2i(0, -8)
-2:0/0/y_sort_origin = -4
-3:0/0 = 0
-3:0/0/texture_origin = Vector2i(0, -8)
-3:0/0/y_sort_origin = -4
-1:1/0 = 0
-1:1/0/texture_origin = Vector2i(0, -8)
-2:1/0 = 0
-2:1/0/texture_origin = Vector2i(0, 8)
-2:1/0/y_sort_origin = -16
-3:1/0 = 0
-3:1/0/texture_origin = Vector2i(0, 8)
-3:1/0/y_sort_origin = -16
-0:3/0 = 0
-0:3/0/texture_origin = Vector2i(0, -8)
-0:3/0/custom_data_0 = true
-1:3/0 = 0
-1:3/0/texture_origin = Vector2i(0, -8)
-1:3/0/custom_data_1 = true
-2:3/0 = 0
-2:3/0/texture_origin = Vector2i(0, -8)
-2:3/0/custom_data_1 = true
-
-[sub_resource type="TileSet" id="TileSet_cwqvt"]
-tile_shape = 1
-tile_layout = 5
-tile_size = Vector2i(32, 16)
-custom_data_layer_0/name = "is_hazard"
-custom_data_layer_0/type = 1
-custom_data_layer_1/name = "hazard_hidden"
-custom_data_layer_1/type = 1
-custom_data_layer_2/name = "type"
-custom_data_layer_2/type = 4
-custom_data_layer_3/name = "direction"
-custom_data_layer_3/type = 4
-sources/2 = SubResource("TileSetAtlasSource_5mrsh")
-sources/0 = SubResource("TileSetAtlasSource_v2pnk")
 
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_6ig5j")
+start_pos = Vector2i(1, 6)
+end_pos = Vector2i(-3, 4)
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD+/wAAAgABAAAAAAD+/wEAAgABAAAAAAAAAP3/AgABAAAAAAD7/wIAAgABAAAAAAD8//3/AgABAAAAAAD8//7/AgABAAEAAAD8////AgABAAEAAAD8/wAAAgABAAAAAAD8/wEAAgABAAAAAAD8/wIAAgABAAAAAAD9//3/AgABAAAAAAD+//3/AgABAAEAAAD+////AgABAAAAAAD///3/AgABAAEAAAD/////AgAAAAAAAAD//wEAAgABAAAAAAD//wIAAgABAAAAAAD//wMAAgABAAAAAAD//wQAAgABAAAAAAAAAP//AgAAAAAAAAABAP3/AgABAAAAAAABAP7/AgABAAAAAAABAP//AgABAAAAAAACAAIAAgABAAEAAAACAAMAAgABAAEAAAA=")
-tile_set = SubResource("TileSet_cwqvt")
+tile_map_data = PackedByteArray("AAD+/wEAAgABAAEAAAD//wIAAgABAAEAAAAAAAIAAgABAAAAAAAAAAMAAgABAAAAAAACAP//AgABAAAAAAD8/wQAAgABAAAAAAD9/wQAAgABAAAAAAD+////AgABAAAAAAD+/wAAAgABAAEAAAD+/wIAAgABAAAAAAD+/wMAAgABAAAAAAD+/wQAAgABAAAAAAD/////AgABAAAAAAAAAP//AgABAAEAAAAAAAEAAgABAAAAAAABAP//AgABAAEAAAABAAEAAgAAAAAAAAABAAMAAgABAAAAAAABAAQAAgABAAAAAAABAAUAAgABAAAAAAABAAYAAgABAAAAAAABAAcAAgACAAAAAAABAAgAAgACAAAAAAABAAkAAgACAAAAAAACAAEAAgAAAAAAAAADAP//AgABAAAAAAADAAAAAgABAAAAAAADAAEAAgABAAAAAAAEAAQAAgABAAEAAAAEAAUAAgABAAEAAAA=")
+tile_set = ExtResource("2_6tpld")
 
 [node name="Layer1" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD+/wEAAAAAAAIAAQD///z/AgACAAIAAAD+//z/AgADAAEAAAD7//7/AgACAAIAAAD5//3/AgACAAIAAAD6////AgACAAIAAAD6/wAAAgACAAIAAAD4//7/AgACAAIAAAD6//v/AgACAAIAAAD9/wQAAgACAAIAAAD+/wUAAgACAAIAAAAAAP//AAAAAAMAAAA=")
-tile_set = SubResource("TileSet_cwqvt")
+tile_map_data = PackedByteArray("AAD//wYAAgACAAIAAAD6/wAAAgACAAIAAAD7////AgACAAIAAAD8//3/AgACAAIAAAD8/wEAAgACAAIAAAD8/wIAAgACAAIAAAD9/wAAAgACAAIAAAAAAP7/AgADAAEAAAAAAAcAAgACAAIAAAABAP7/AgACAAIAAAACAAEAAAAAAAMAAAA=")
+tile_set = ExtResource("2_6tpld")
 y_sort_origin = 24
 
+[node name="Layer2" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD8/wQAAgAAAAMAAAD9/wQAAgAAAAMAAAD+/wMAAgAAAAMAAAD+/wQAAgAAAAMAAAABAAUAAgAAAAMAAAABAAYAAgAAAAMAAAABAAcAAgAAAAMAAAABAAgAAgAAAAMAAAABAAkAAgAAAAMAAAA=")
+tile_set = ExtResource("2_6tpld")
+y_sort_origin = 48
+
 [node name="Player" parent="." instance=ExtResource("4_ri3il")]
-position = Vector2(0, -16)
+position = Vector2(0, 16)
 
 [node name="NPC" parent="." instance=ExtResource("5_bsp3h")]
-position = Vector2(-32, 16)
+position = Vector2(-80, 72)

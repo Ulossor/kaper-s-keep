@@ -4,18 +4,15 @@ extends Node2D
 
 var lvls = ["levels/level00.tscn", "levels/level01.tscn",
 			"levels/level02.tscn", "levels/level03.tscn",
-			"levels/level04.tscn", "levels/level05.tscn"]
+			"levels/level04.tscn", "levels/level05.tscn",
+			"levels/level06.tscn", "levels/level07.tscn",
+			"levels/level071.tscn",
+			"levels/level08.tscn", "levels/level09.tscn"]
 var cur_level = lvls[0]
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#npc.gotcha.connect(_on_gotcha)
-	#npc.game_over.connect(_on_game_over)
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_gotcha():
 	$HUD/WellDone.show()
@@ -43,7 +40,6 @@ func _on_hud_next() -> void:
 
 
 func _on_hud_retry() -> void:
-	print(cur_level)
 	$Level.queue_free()
 	await get_tree().physics_frame
 	if $HUD/GameOver.visible:
@@ -61,3 +57,26 @@ func _on_child_entered_tree(node: Node) -> void:
 		#print("capy")
 		$Level/NPC.gotcha.connect(_on_gotcha)
 		$Level/NPC.game_over.connect(_on_game_over)
+
+func prep_phase():
+	await get_tree().physics_frame
+	$"Level/NPC".move_to($Level.start_pos)
+	$"Level/Layer2".enabled = true
+	#$"Level/NPC".set_process(false)
+	$"Level/Player".prep = true
+	$"Level/Player".show()
+	$"Level/Player".set_process(true)
+	$HUD/ArsenalBox.show()
+
+func run_phase():
+	await get_tree().physics_frame
+
+	$"Level/Layer2".enabled = false
+	$"Level/Player".prep = false
+	$"Level/Player".set_process(false)
+	$"Level/Player".hide()
+	$"Level/NPC".setup_astar()
+	$"Level/NPC".set_process(true)
+	$HUD/ArsenalBox.hide()
+	await get_tree().create_timer(1).timeout
+	$"Level/NPC".move_to($"Level".end_pos)

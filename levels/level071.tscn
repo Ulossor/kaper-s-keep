@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=4 uid="uid://cbnw3677w8677"]
+
+[ext_resource type="Script" uid="uid://cho5k4h78ehgy" path="res://levels/level_071.gd" id="1_jyss2"]
+[ext_resource type="TileSet" uid="uid://b7msp4krn2rwg" path="res://levels/level.tres" id="2_sn04x"]
+[ext_resource type="PackedScene" uid="uid://b2j68ho7ka1h1" path="res://player.tscn" id="3_5joo5"]
+[ext_resource type="PackedScene" uid="uid://d3yif5da08tc3" path="res://npc.tscn" id="4_tjfb7"]
+
+[node name="Level" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_jyss2")
+end_pos = Vector2i(-3, -7)
+
+[node name="Layer0" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD+/wEAAgACAAAAAAD//wIAAgACAAAAAAD//wMAAgACAAAAAAD//wQAAgACAAAAAAD//wUAAgACAAAAAAD+/wMAAgACAAAAAAD+/wIAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAEAAgACAAAAAAABAAIAAgAAAAAAAAABAAEAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAP//AgAAAAAAAAAAAP7/AgACAAAAAAABAAAAAgACAAAAAAABAP//AgAAAAAAAAD//wEAAgAAAAAAAAD/////AgACAAAAAAD///7/AgACAAAAAAD+//7/AgAAAAAAAAD9//7/AgACAAAAAAD8//7/AgAAAAAAAAD+////AgAAAAAAAAD9////AgACAAAAAAD8////AgACAAAAAAD8//3/AgACAAAAAAD9//3/AgACAAAAAAD8//z/AgACAAAAAAD9//z/AgACAAAAAAD9//v/AgACAAAAAAD8//v/AgACAAAAAAD8//r/AgACAAAAAAD9//r/AgACAAAAAAD//wYAAgAAAAAAAAD8//n/AgABAAAAAAD9//n/AgABAAAAAAA=")
+tile_set = ExtResource("2_sn04x")
+
+[node name="Layer1" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD//wIAAAAAAAAAAAA=")
+tile_set = ExtResource("2_sn04x")
+y_sort_origin = 24
+
+[node name="Layer2" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD//wUAAgAAAAMAAAD9//r/AgAAAAMAAAD//wQAAgAAAAMAAAD//wYAAgAAAAMAAAD8//n/AgAAAAMAAAD9//n/AgAAAAMAAAD8//r/AgAAAAMAAAA=")
+tile_set = ExtResource("2_sn04x")
+y_sort_origin = 48
+
+[node name="Player" parent="." instance=ExtResource("3_5joo5")]
+position = Vector2(-32, 16)
+
+[node name="NPC" parent="." instance=ExtResource("4_tjfb7")]
+position = Vector2(-32, 24)

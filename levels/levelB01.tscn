@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=4 uid="uid://cfy2wymoc1bwi"]
+
+[ext_resource type="Script" uid="uid://plaqd1ymhrdq" path="res://levels/level_06.gd" id="1_hh063"]
+[ext_resource type="TileSet" uid="uid://b7msp4krn2rwg" path="res://levels/level.tres" id="2_mhek5"]
+[ext_resource type="PackedScene" uid="uid://b2j68ho7ka1h1" path="res://player.tscn" id="3_orjfh"]
+[ext_resource type="PackedScene" uid="uid://d3yif5da08tc3" path="res://npc.tscn" id="4_rd75d"]
+
+[node name="Level" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_hh063")
+
+[node name="Layer0" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAAAAcAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAUAAgAAAAAAAAABAAUAAgAAAAAAAAACAAUAAgAAAAAAAAACAAYAAgAAAAAAAAACAAcAAgAAAAAAAAABAAcAAgAAAAAAAAABAAYAAgAAAAAAAAABAAMAAgAAAAAAAAD//wMAAgAAAAAAAAADAAMAAgAAAAAAAAADAAEAAgAAAAAAAAABAAEAAgAAAAAAAAD//wEAAgAAAAAAAAABAP//AgAAAAAAAAD/////AgAAAAAAAAD9/wEAAgAAAAAAAAD9////AgAAAAAAAAADAAUAAgAAAAAAAAD//wUAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAIAAgAAAAAAAAACAAIAAgAAAAAAAAACAAQAAgAAAAAAAAAAAAAAAgAAAAAAAAACAAAAAgAAAAAAAAD+/wIAAgAAAAAAAAD+/wAAAgAAAAAAAAD+//7/AgAAAAAAAAAAAP7/AgAAAAAAAAAAAAMAAgABAAAAAAABAAQAAgAAAAAAAAACAAMAAgAAAAAAAAABAAIAAgAAAAAAAAACAAEAAgAAAAAAAAAAAAEAAgAAAAAAAAABAAAAAgAAAAAAAAAAAP//AgAAAAAAAAD9/wAAAgAAAAAAAAD+////AgAAAAAAAAD+/wEAAgAAAAAAAAACAP//AgAAAAAAAAADAP//AgAAAAAAAAACAP7/AgAAAAAAAAD8//7/AgAAAAAAAAD8////AgAAAAAAAAD8/wAAAgAAAAAAAAD8/wEAAgAAAAAAAAD8/wIAAgAAAAAAAAD//wIAAgAAAAAAAAA=")
+tile_set = ExtResource("2_mhek5")
+
+[node name="Layer1" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAMAAAACAAQAAAAAAAMAAAACAAIAAAAAAAMAAAAAAAIAAAAAAAMAAAACAAAAAAAAAAMAAAAAAAAAAAAAAAMAAAD+/wAAAAAAAAMAAAAAAAMAAgADAAEAAAABAAEAAgADAAEAAAA=")
+tile_set = ExtResource("2_mhek5")
+y_sort_origin = 24
+
+[node name="Layer2" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAAAAYAAgAAAAMAAAABAAYAAgAAAAMAAAACAAYAAgAAAAMAAAAAAAcAAgAAAAMAAAABAAcAAgAAAAMAAAACAAcAAgAAAAMAAAD8/wEAAgAAAAMAAAD8/wAAAgAAAAMAAAD8////AgAAAAMAAAA=")
+tile_set = ExtResource("2_mhek5")
+y_sort_origin = 48
+
+[node name="Player" parent="." instance=ExtResource("3_orjfh")]
+position = Vector2(-16, 8)
+
+[node name="NPC" parent="." instance=ExtResource("4_rd75d")]
+position = Vector2(-64, 64)

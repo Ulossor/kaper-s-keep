@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=4 uid="uid://d17bq8j6thuy4"]
+
+[ext_resource type="Script" uid="uid://u0evlncmqcdp" path="res://levels/level_09.gd" id="1_ui5p2"]
+[ext_resource type="TileSet" uid="uid://b7msp4krn2rwg" path="res://levels/level.tres" id="2_afyni"]
+[ext_resource type="PackedScene" uid="uid://b2j68ho7ka1h1" path="res://player.tscn" id="3_ycjkv"]
+[ext_resource type="PackedScene" uid="uid://d3yif5da08tc3" path="res://npc.tscn" id="4_hngfn"]
+
+[node name="Level" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ui5p2")
+end_pos = Vector2i(0, 0)
+
+[node name="Layer0" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAAAAUAAgABAAEAAAAAAAQAAgABAAEAAAAAAAMAAgABAAEAAAAAAAIAAgABAAEAAAAAAAEAAgABAAEAAAD//wEAAgABAAEAAAD//wAAAgABAAEAAAD/////AgABAAEAAAAAAAAAAgABAAEAAAABAAEAAgABAAEAAAABAAAAAgABAAEAAAABAP//AgABAAEAAAAAAP//AgABAAEAAAABAAIAAgABAAEAAAABAAMAAgABAAEAAAD//wIAAgABAAEAAAD//wMAAgABAAEAAAD//wQAAgABAAEAAAABAAQAAgABAAEAAAD//wUAAgABAAEAAAABAAUAAgABAAEAAAD+////AgABAAEAAAD+/wAAAgABAAEAAAD///7/AgABAAEAAAAAAP7/AgABAAEAAAABAP7/AgABAAEAAAACAP//AgABAAEAAAACAAAAAgABAAEAAAD//wYAAgABAAEAAAAAAAYAAgABAAEAAAAAAAcAAgABAAEAAAABAAYAAgABAAEAAAA=")
+tile_set = ExtResource("2_afyni")
+
+[node name="Layer1" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD//wIAAgABAAIAAAABAAUAAgABAAIAABABAAQAAAAAAAEAAAD//wEAAAAAAAEAAAD+/wEAAgACAAEAAAD+/wIAAgACAAEAAAD+/wMAAgACAAEAAAD+/wQAAgACAAEAAAD9/wAAAgACAAEAAAD9////AgACAAEAAAD9//7/AgACAAEAAAD+//7/AgACAAEAAAD+//3/AgACAAEAAAD///3/AgACAAEAAAAAAP3/AgACAAEAAAABAP3/AgACAAEAAAACAP3/AgACAAEAAAACAP7/AgACAAEAAAADAP7/AgACAAEAAAADAP//AgACAAEAAAADAAAAAgACAAEAAAD+/wUAAgACAAEAAAD//wQAAAAAAAEAAAAAAAQAAAAAAAAAAAA=")
+tile_set = ExtResource("2_afyni")
+y_sort_origin = 24
+
+[node name="Layer2" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAABAP3/AgAAAAMAAAACAP7/AgAAAAMAAAAAAPz/AgAAAAMAAAA=")
+tile_set = ExtResource("2_afyni")
+y_sort_origin = 48
+
+[node name="Player" parent="." instance=ExtResource("3_ycjkv")]
+position = Vector2(-16, 8)
+
+[node name="NPC" parent="." instance=ExtResource("4_hngfn")]
+position = Vector2(-96, 64)

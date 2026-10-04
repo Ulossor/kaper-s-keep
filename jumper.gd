@@ -9,16 +9,12 @@ func _ready() -> void:
 	var tile_data = map1.get_cell_tile_data(map1.local_to_map(position))
 	direction = tile_data.get_custom_data("direction")
 	$Sprite.animation = direction
-	print(direction)
 
-
-func _process(delta: float) -> void:
-	pass
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		if !body.in_air:
+		if !body.in_air or body.jump_target == self.position:
 			var jump_target 
 			match direction:
 				"up": jump_target = map0.local_to_map(body.position) + Vector2i(-2,0)
@@ -28,3 +24,4 @@ func _on_body_entered(body: Node2D) -> void:
 			body.jump_target = map0.map_to_local(jump_target)
 			await get_tree().physics_frame
 			body.in_air = true
+			$Sprite.play()

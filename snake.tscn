@@ -1,13 +1,36 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj3u6k52gdky7"]
+[gd_scene load_steps=11 format=3 uid="uid://bj3u6k52gdky7"]
 
 [ext_resource type="Texture2D" uid="uid://dv5ry8lo0bt3s" path="res://art/tiles/snake/Snake.png" id="1_baghe"]
 [ext_resource type="Script" uid="uid://dglljxdcc06xc" path="res://snake.gd" id="1_gxkgb"]
 [ext_resource type="Texture2D" uid="uid://blu820t1vkf07" path="res://art/tiles/snake/Snake 2.png" id="2_gxkgb"]
 [ext_resource type="Texture2D" uid="uid://itv0wgqotp0d" path="res://art/tiles/snake/Snake 3.png" id="4_dw1s1"]
+[ext_resource type="Texture2D" uid="uid://dyp0hsaos7adp" path="res://art/tiles/snake/SnakeBite2.png" id="4_vl5xi"]
 [ext_resource type="Texture2D" uid="uid://cgwxan4abwt0j" path="res://art/tiles/snake/Snake 4.png" id="5_ej4wj"]
+[ext_resource type="Texture2D" uid="uid://cixrjefq3cxw0" path="res://art/tiles/snake/SnakeBite3.png" id="5_jmbwr"]
+[ext_resource type="Texture2D" uid="uid://ch3xfa36uohmd" path="res://art/tiles/snake/SnakeBite4.png" id="6_sn80k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ya8rp"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_baghe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gxkgb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vl5xi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jmbwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sn80k")
+}],
+"loop": true,
+"name": &"aggro",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_gxkgb")
@@ -32,9 +55,12 @@ size = Vector2(32, 16)
 [node name="Snake" type="Area2D"]
 script = ExtResource("1_gxkgb")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_ya8rp")
+animation = &"aggro"
+frame = 4
+frame_progress = 0.323374
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dw1s1")
