@@ -8,7 +8,7 @@ func _ready() -> void:
 	$GameOver.hide()
 	$WellDone.hide()
 	$TheEnd.hide()
-
+	$DialogBox.hide()
 
 
 func _on_well_done_visibility_changed() -> void:

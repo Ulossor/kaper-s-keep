@@ -5,6 +5,13 @@ extends Node2D
 
 @export var start_pos=Vector2i(4,1)
 @export var end_pos=Vector2i(-5,1)
+var lines = ["Now you've got a snake.",
+			"Snake will bite",
+			"if adventurer is in one",
+			"of four neighbouring",
+			"tiles.",
+			"pockerThe voices...",
+			"pocker...the voices..."]
 
 func _ready() -> void:
 	$Player.available_traps = {
@@ -19,6 +26,8 @@ func _ready() -> void:
 	$"../HUD".refresh_arsenal()
 	
 	$"../../Main".prep_phase()
+	
+	$"../../Main".dialog()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

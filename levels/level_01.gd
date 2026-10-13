@@ -5,6 +5,15 @@ extends Node2D
 
 @export var start_pos=Vector2i(4,1)
 @export var end_pos=Vector2i(-5,1)
+var lines = ["You've got a jumper trap now.",
+			"Use it to push adventurer",
+			"to other route or trap.",
+			"With jumper chosen",
+			"press select to change",
+			"direction.",
+			"You may press start while",
+			"adventurer moves, to",
+			"reload level."]
 
 func _ready() -> void:
 	$Player.available_traps = {
@@ -19,7 +28,8 @@ func _ready() -> void:
 	$"../HUD".refresh_arsenal()
 	
 	$"../../Main".prep_phase()
-
+	
+	$"../../Main".dialog()
 
 func _process(_delta: float) -> void:
 	if npc.position == $Layer0.map_to_local(end_pos):

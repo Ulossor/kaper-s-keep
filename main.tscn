@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://urb5bm4myce3" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cvcy4arl4s5rm" path="res://art/background05.png" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bi3swkmrgd12y" path="res://hud.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://ciiwa0u1fw8ho" path="res://levels/level00.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d17bq8j6thuy4" path="res://levels/level09.tscn" id="3_lquwl"]
 [ext_resource type="AudioStream" uid="uid://daab4hyob3uvs" path="res://sound/game1.mp3" id="5_lquwl"]
 
 [node name="Main" type="Node2D"]
@@ -32,7 +32,8 @@ z_index = 32
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_lquwl")
-parameters/looping = false
+autoplay = true
+parameters/looping = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

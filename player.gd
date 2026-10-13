@@ -67,9 +67,6 @@ func _process(_delta: float) -> void:
 					cur_trap["direction"] = directs[(i+1) % directs.size()]
 					break
 			$Sprite.animation = cur_trap["direction"]
-	if Input.is_action_just_pressed("Start"):
-		if prep:
-			$"../../../Main".run_phase()
 
 func position_input():
 	if map1.get_cell_source_id(map1.local_to_map(position) + Vector2i(-1,-1)) != -1:
@@ -132,6 +129,9 @@ func change_trap():
 		else: counterEmpty = 0
 		
 func _unhandled_input(event: InputEvent) -> void:
-	if !prep:
-		if Input.is_action_just_pressed("Start"):
+	if event.is_action_pressed("Start"):
+		if !prep:
+			get_viewport().set_input_as_handled()
 			$"../../../Main"._on_hud_retry()
+		if prep:
+			$"../../../Main".run_phase()

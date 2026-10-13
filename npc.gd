@@ -5,6 +5,7 @@ signal game_over
 
 @onready var map0 = $"../Layer0"
 @onready var map1 = $"../Layer1"
+@onready var path_p = $"../../Level".start_pos
 var target_tile # Vector2i(-2, 2)
 var target_loc # map0.map_to_local(target_tile)
 
@@ -15,7 +16,7 @@ var is_moving = false
 var in_air = false
 var is_falling = false
 var jump_target
-var path_p
+
 
 func _ready() -> void:
 	$Sprite.animation = "default"
@@ -35,6 +36,7 @@ func _process(delta: float) -> void:
 			if !in_air:
 				if map0.local_to_map(position) != path_p:
 					manage_pit()
+					$Sprite.flip_h = ((cur_path[0] - path_p).y < 0 or (cur_path[0] - path_p).x > 0)
 				path_p = map0.local_to_map(position)
 		
 		if in_air:
@@ -56,24 +58,19 @@ func _process(delta: float) -> void:
 						set_process(true)
 						await get_tree().create_timer(1).timeout
 						gotcha.emit()
-				
-			
-			
 			
 		elif is_moving:
 			$Sprite.animation = "walk"
 			position = position.move_toward(target_loc, speed * delta)
 			if position == target_loc:
 				is_moving = false
+			
 		else:
 			$Sprite.animation ="default"
 			if cur_path.size() > 0:
 				var next_tile = cur_path.pop_front()
 				target_loc = map0.map_to_local(next_tile)
 				is_moving = true
-		
-			#gotcha.emit()
-			#$"../../../Main"._on_hud_retry()
 
 func setup_astar():
 	astar = AStarGrid2D.new()
@@ -89,29 +86,29 @@ func setup_astar():
 		if tile_data:
 			if tile_data.get_custom_data("is_hazard"):
 				astar.set_point_solid(cell, true)
-				
-			if map1.get_cell_tile_data(cell):
-				if map1.get_cell_tile_data(cell).get_custom_data("type") == "snake":
-					var snake = load("res://snake.tscn")
-					snake = snake.instantiate()
-					$"../../Level".add_child.call_deferred(snake)
-					snake.position = map1.map_to_local(cell)
-					map1.erase_cell(cell)
-					
-					astar.set_point_solid(cell)
-				elif map1.get_cell_tile_data(cell).get_custom_data("type") == "jumper":
-					var jumper = load("res://jumper.tscn")
-					jumper = jumper.instantiate()
-					jumper.position = map1.map_to_local(cell)
-					$"../../Level".add_child.call_deferred(jumper)
-					#map1.erase_cell(cell)
-					#astar.set_point_solid(cell)
-				elif map1.get_cell_tile_data(cell).get_custom_data("type") == "spikes":
-					var spikes = load("res://spikes.tscn")
-					spikes = spikes.instantiate()
-					spikes.position = map1.map_to_local(cell)
-					$"../../Level".add_child.call_deferred(spikes)
-					
+			if $"../../Level".end_pos != Vector2i(0,0):
+				if map1.get_cell_tile_data(cell):
+					if map1.get_cell_tile_data(cell).get_custom_data("type") == "snake":
+						var snake = load("res://snake.tscn")
+						snake = snake.instantiate()
+						$"../../Level".add_child.call_deferred(snake)
+						snake.position = map1.map_to_local(cell)
+						map1.erase_cell(cell)
+						
+						astar.set_point_solid(cell)
+					elif map1.get_cell_tile_data(cell).get_custom_data("type") == "jumper":
+						var jumper = load("res://jumper.tscn")
+						jumper = jumper.instantiate()
+						jumper.position = map1.map_to_local(cell)
+						$"../../Level".add_child.call_deferred(jumper)
+						#map1.erase_cell(cell)
+						#astar.set_point_solid(cell)
+					elif map1.get_cell_tile_data(cell).get_custom_data("type") == "spikes":
+						var spikes = load("res://spikes.tscn")
+						spikes = spikes.instantiate()
+						spikes.position = map1.map_to_local(cell)
+						$"../../Level".add_child.call_deferred(spikes)
+						
 		if map1.get_cell_source_id(cell ) == 2:
 			astar.set_point_solid(cell)
 	for child in $"../../Level".get_children():
@@ -183,7 +180,5 @@ func manage_pit():
 
 
 func freefall(delta):
-	
-	
 	#y_sort_enabled =true
 	position = position.move_toward(Vector2(position.x, 500), delta * 200 )
