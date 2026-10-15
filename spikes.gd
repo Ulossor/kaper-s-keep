@@ -16,4 +16,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		if !body.in_air or body.jump_target == self.position:
 			$Sprite.play()
+			$Thrust.play()
 			spike_hit.emit()

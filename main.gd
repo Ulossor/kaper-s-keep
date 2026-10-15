@@ -13,7 +13,6 @@ var cur_level = lvls[0]
 func _ready() -> void:
 	pass
 
-
 func _on_gotcha():
 	$HUD/WellDone.show()
 	$Level/Player.set_process(false)

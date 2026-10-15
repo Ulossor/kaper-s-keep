@@ -94,7 +94,8 @@ func _ready() -> void:
 	await $"../HUD/DialogBox".visibility_changed
 	await get_tree().create_timer(1).timeout
 	$"../HUD/TheEnd".show()
-	#await snake sound effect
+	$"../HUD/HUDHiss".play()
+	await $"../HUD/HUDHiss".finished
 	$"../HUD/TheEnd/TELbl".show()
 	
 func _process(_delta: float) -> void:

@@ -18,10 +18,12 @@ func _on_body_entered(body: Node2D) -> void:
 		var if_neighbor = abs(diff.x + diff.y) == 1
 		if !body.in_air:
 			$Sprite.animation = "aggro"
+			$Hiss.play()
 			snake_hit.emit()
 		elif if_neighbor:
 			await get_tree().physics_frame
 			await get_tree().physics_frame
 			$Sprite.animation = "aggro"
+			$Hiss.play()
 			snake_hit.emit()
 		

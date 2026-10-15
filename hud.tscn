@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bi3swkmrgd12y"]
+[gd_scene load_steps=17 format=3 uid="uid://bi3swkmrgd12y"]
 
 [ext_resource type="Script" uid="uid://6b4thod00tyy" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="AudioStream" uid="uid://dt6mr4v43cdhg" path="res://sound/Effects/hiss1.mp3" id="2_64ctp"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_37p78"]
 color = Color(0.901961, 0.72549, 0.352941, 1)
@@ -298,6 +299,9 @@ theme_override_colors/font_color = Color(0.901961, 0.72549, 0.352941, 1)
 theme_override_font_sizes/font_size = 8
 text = "The end"
 horizontal_alignment = 1
+
+[node name="HUDHiss" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_64ctp")
 
 [connection signal="visibility_changed" from="GameOver" to="." method="_on_game_over_visibility_changed"]
 [connection signal="pressed" from="GameOver/Retry" to="." method="_on_go_retry_pressed"]

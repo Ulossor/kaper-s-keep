@@ -55,4 +55,4 @@ sprite_frames = SubResource("SpriteFrames_ycjkv")
 offset = Vector2(0, -8)
 
 [node name="Player" parent="." instance=ExtResource("3_ycjkv")]
-position = Vector2(-128, 64)
+position = Vector2(-192, 64)

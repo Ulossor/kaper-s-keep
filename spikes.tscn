@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c04l4x0qgvo1b"]
+[gd_scene load_steps=7 format=3 uid="uid://c04l4x0qgvo1b"]
 
 [ext_resource type="Script" uid="uid://budnoddejpxfg" path="res://spikes.gd" id="1_8fhau"]
 [ext_resource type="Texture2D" uid="uid://cvaj2slrc1tng" path="res://art/tiles/spikes/spikes0.png" id="1_nrdsm"]
 [ext_resource type="Texture2D" uid="uid://cyc83lmmi3spd" path="res://art/tiles/spikes/spikes1.png" id="2_8fhau"]
+[ext_resource type="AudioStream" uid="uid://vjr756wedk15" path="res://sound/Effects/thrust.mp3" id="4_ds4fp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ds4fp"]
 animations = [{
@@ -33,5 +34,9 @@ sprite_frames = SubResource("SpriteFrames_ds4fp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("ConvexPolygonShape2D_k4mtd")
+
+[node name="Thrust" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ds4fp")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

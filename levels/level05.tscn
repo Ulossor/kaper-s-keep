@@ -29,7 +29,7 @@ tile_set = ExtResource("2_2lx8q")
 y_sort_origin = 48
 
 [node name="Player" parent="." instance=ExtResource("3_vh3d3")]
-position = Vector2(-16, 8)
+position = Vector2(0, 48)
 
 [node name="NPC" parent="." instance=ExtResource("4_01x3r")]
 position = Vector2(-96, 64)
